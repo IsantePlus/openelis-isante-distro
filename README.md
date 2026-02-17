@@ -1,4 +1,4 @@
-# IsantePlus-OpenELIS-HIE
+# openelis-isante-distro
 
 Spin up the OpenELIS and OpenHIM services 
 
@@ -75,13 +75,13 @@ Acces the services at
 
 1. Ensure Add the Right Test Catalogue ie tests with `Loinc Codes` ie add more tests to the [test config](./configs/openelis/configuration/backend/tests/isante-tests.csv)
 
-1. To send an Order form IsantePlus to OpenELIS , Go to the Patient Dashboard , Open the Laboratory form , select `OpenELIS` as the destination , select tests and send.
+1. To send an Order from IsantePlus to OpenELIS , Go to the Patient Dashboard , Open the Laboratory form , select `OpenELIS` as the destination , select tests and send.
 
 1. The Electronic Orders should be accesed in OpenELIS via Electronic Orders
 
 1. Ensure Results entry and Results Validation in OpenELIS
 
-1. To Fetch back the Test Results form OpenELIS , Start the OpenELIS Pull Task in Isanteplus to pull back the results.
+1. To Fetch back the Test Results from OpenELIS , Start the OpenELIS Pull Task in Isanteplus to pull back the results.
 
 Note that All Transactions are Logged through OpenHIM
 
