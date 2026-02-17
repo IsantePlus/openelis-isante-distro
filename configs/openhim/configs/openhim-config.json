@@ -1,0 +1,158 @@
+{
+  "Users": [
+    {
+      "groups": [
+        "admin"
+      ],
+      "firstname": "Super",
+      "surname": "User",
+      "email": "root@openhim.org",
+      "passwordAlgorithm": "sha512",
+      "passwordHash": "3d6b43da9421e7388c5091cfb4b8a9c1fd97d7d88a12c8fcf031bee8afc7a7653b8019bb7042a0a9cbb98d5527751df9d209f8ecbdf8b29905d8e64f1b0c9e6d",
+      "passwordSalt": "88e65849aa7f1103798e760fc0dd6602",
+      "expiry": null,
+      "locked": false,
+      "settings": {
+        "visualizer": {
+          "data": {
+            "components": [],
+            "channels": [],
+            "mediators": [],
+            "color": {
+              "inactive": "#cccccc",
+              "active": "#4cae4c",
+              "error": "#d43f3a",
+              "text": "#000000"
+            },
+            "size": {
+              "responsive": true,
+              "width": 1000,
+              "height": 400,
+              "padding": 20
+            },
+            "time": {
+              "updatePeriod": 200,
+              "minDisplayPeriod": 500,
+              "maxSpeed": 5,
+              "maxTimeout": 5000
+            }
+          },
+          "status": 200,
+          "config": {
+            "method": "GET",
+            "transformRequest": [
+              null
+            ],
+            "transformResponse": [
+              null
+            ],
+            "jsonpCallbackParam": "callback",
+            "url": "config/visualizer.json",
+            "headers": {
+              "Accept": "application/json, text/plain, */*",
+              "auth-username": "root@openhim.org",
+              "auth-ts": "2021-08-03T17:14:20.170Z",
+              "auth-salt": "519f3ad7deb57cafe99db3035fa84e55",
+              "auth-token": "b776fe544914ae359c28548c3e513d38a270b8f99096fadaf6e8e4143e419f4646c07b1c82c671e2eb98289f40debce5348ea5efc5ee2a56ff7bf776631a8dbd"
+            }
+          },
+          "statusText": "OK",
+          "xhrStatus": "complete"
+        }
+      },
+      "token": null,
+      "tokenType": null
+    }
+  ],
+  "Clients": [
+    {
+      "roles": [
+        "admin"
+      ],
+      "clientID": "OpenELIS",
+      "name": "OpenELIS",
+      "organization": "OpenELIS",
+      "passwordAlgorithm": "sha512",
+      "passwordSalt": "3ed9f887292b021eb166d8e4c7c45a39",
+      "passwordHash": "cdb6367a557235684ef0aa4998bd12a0222bcca199affa176c6d3d1d7840e94e0175be336abd7e2e5e06d43f57f98e99803c342929c1d30255d26a10c84033cb"
+    },
+    {
+      "roles": [
+        "admin"
+      ],
+      "clientID": "IsantePLUS",
+      "name": "IsantePLUS",
+      "organization": "IsantePLUS",
+      "passwordAlgorithm": "sha512",
+      "passwordSalt": "ef19571d7bda6056c3a6f8d8d56d2852",
+      "passwordHash": "dd465772354a510bc4215adf988fadf3f21d8544c3fa8e9662edfe795ebccebfc4b8df8bc74d917d4c3b922e1d33a892da7592e671d38f22042e591bd63522d6"
+    }
+  ],
+  "Channels": [
+    {
+      "methods": [
+        "GET",
+        "POST",
+        "DELETE",
+        "PUT",
+        "OPTIONS",
+        "HEAD",
+        "TRACE",
+        "CONNECT",
+        "PATCH"
+      ],
+      "type": "http",
+      "allow": [
+        "admin"
+      ],
+      "whitelist": [],
+      "authType": "private",
+      "matchContentTypes": [],
+      "properties": [],
+      "txViewAcl": [],
+      "txViewFullAcl": [],
+      "txRerunAcl": [],
+      "status": "enabled",
+      "rewriteUrls": false,
+      "addAutoRewriteRules": true,
+      "autoRetryEnabled": false,
+      "autoRetryPeriodMinutes": 60,
+      "routes": [
+        {
+          "type": "http",
+          "status": "enabled",
+          "forwardAuthHeader": false,
+          "name": "OpenELIS FHIR server",
+          "secured": false,
+          "host": "fhir.openelis.org",
+          "port": 8080,
+          "path": "",
+          "pathTransform": "",
+          "primary": true,
+          "username": "",
+          "password": ""
+        }
+      ],
+      "requestBody": true,
+      "responseBody": true,
+      "rewriteUrlsConfig": [],
+      "name": "central fhir server",
+      "description": "Access to the central FHIR server",
+      "pollingSchedule": null,
+      "matchContentRegex": null,
+      "matchContentXpath": null,
+      "matchContentValue": null,
+      "matchContentJson": null,
+      "urlPattern": "^/fhir/.*$",
+      "tcpHost": null,
+      "tcpPort": null,
+      "updatedBy": {
+        "id": "681b1e3d9d385e00131c19b5",
+        "name": "Super User"
+      },
+      "alerts": []
+    }
+  ],
+  "Mediators": [],
+  "ContactGroups": []
+}

@@ -1,0 +1,254 @@
+{
+  "includes": [
+    {
+      "elementId": "menu_home",
+      "childMenus": []
+    },
+    {
+      "elementId": "menu_sample",
+      "childMenus": [
+        {
+          "elementId": "menu_sample_add",
+          "childMenus": []
+        },
+        {
+          "elementId": "menu_sample_edit",
+          "childMenus": []
+        },
+        {
+          "elementId": "menu_sample_eorder",
+          "childMenus": []
+        },
+        {
+          "elementId": "menu_sample_batch_entry",
+          "childMenus": []
+        },
+        {
+          "elementId": "menu_sample_print_barcode",
+          "childMenus": []
+        }
+      ]
+    },
+    {
+      "elementId": "menu_patient",
+      "childMenus": [
+        {
+          "elementId": "menu_patient_add_or_edit",
+          "childMenus": []
+        },
+        {
+          "elementId": "menu_patienthistory",
+          "childMenus": []
+        },
+        {
+          "elementId": "menu_patient_merge",
+          "childMenus": []
+        }
+      ]
+    },
+    {
+      "elementId": "menu_nonconformity",
+      "childMenus": [
+        {
+          "elementId": "menu_non_conforming_report",
+          "childMenus": []
+        },
+        {
+          "elementId": "menu_non_conforming_view",
+          "childMenus": []
+        },
+        {
+          "elementId": "menu_non_conforming_corrective_actions",
+          "childMenus": []
+        }
+      ]
+    },
+    {
+      "elementId": "menu_workplan",
+      "childMenus": [
+        {
+          "elementId": "menu_workplan_test",
+          "childMenus": []
+        },
+        {
+          "elementId": "menu_workplan_panel",
+          "childMenus": []
+        },
+        {
+          "elementId": "menu_workplan_bench",
+          "childMenus": []
+        },
+        {
+          "elementId": "menu_workplan_priority",
+          "childMenus": []
+        }
+      ]
+    },
+    {
+      "elementId": "menu_results",
+      "childMenus": [
+        {
+          "elementId": "menu_results_logbook",
+          "childMenus": []
+        },
+        {
+          "elementId": "menu_results_patient",
+          "childMenus": []
+        },
+        {
+          "elementId": "menu_results_accession",
+          "childMenus": []
+        },
+        {
+          "elementId": "menu_results_referred",
+          "childMenus": []
+        },
+        {
+          "elementId": "menu_results_range",
+          "childMenus": []
+        },
+        {
+          "elementId": "menu_results_status",
+          "childMenus": []
+        },
+         {
+          "elementId": "order_programmes",
+          "childMenus": []
+        },
+        {
+          "elementId": "menu_results_analyzer",
+          "childMenus": [
+            {
+              "elementId": "PocH100iAnalyzer_plugin",
+              "childMenus": []
+            },
+            {
+              "elementId": "GeneXpertAnalyzer_plugin",
+              "childMenus": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "elementId": "menu_resultvalidation",
+      "childMenus": [
+        {
+          "elementId": "menu_resultvalidation_routine",
+          "childMenus": []
+        },
+        {
+          "elementId": "menu_accession_validation",
+          "childMenus": []
+        },
+        {
+          "elementId": "menu_accession_validation_range",
+          "childMenus": []
+        },
+        {
+          "elementId": "menu_resultvalidation_date",
+          "childMenus": []
+        }
+      ]
+    },
+    {
+      "elementId": "menu_reports",
+      "childMenus": [
+        {
+          "elementId": "menu_reports_routine",
+          "childMenus": [
+            {
+              "elementId": "menu_reports_status_patient",
+              "childMenus": []
+            },
+            {
+              "elementId": "menu_reports_aggregate",
+              "childMenus": [
+                {
+                  "elementId": "menu_reports_aggregate_statistics",
+                  "childMenus": []
+                },
+                {
+                  "elementId": "menu_reports_aggregate_all",
+                  "childMenus": []
+                },
+                {
+                  "elementId": "menu_reports_aggregate_hiv",
+                  "childMenus": []
+                }
+              ]
+            },
+            {
+              "elementId": "menu_reports_management",
+              "childMenus": [
+                {
+                  "elementId": "menu_reports_management_rejection",
+                  "childMenus": []
+                },
+                {
+                  "elementId": "menu_reports_activity",
+                  "childMenus": [
+                    {
+                      "elementId": "menu_activity_report_test",
+                      "childMenus": []
+                    },
+                    {
+                      "elementId": "menu_activity_report_panel",
+                      "childMenus": []
+                    },
+                    {
+                      "elementId": "menu_activity_report_bench",
+                      "childMenus": []
+                    }
+                  ]
+                },
+                {
+                  "elementId": "menu_reports_referred",
+                  "childMenus": []
+                },
+                {
+                  "elementId": "menu_reports_nonconformity",
+                  "childMenus": [
+                    {
+                      "elementId": "menu_reports_nonconformity_date",
+                      "childMenus": []
+                    },
+                    {
+                      "elementId": "menu_reports_nonconformity_section",
+                      "childMenus": []
+                    }
+                  ]
+                },
+                {
+                  "elementId": "menu_reports_validation_backlog",
+                  "childMenus": []
+                },
+                {
+                  "elementId": "menu_reports_auditTrail",
+                  "childMenus": []
+                }
+              ]
+            },
+            {
+              "elementId": "menu_reports_export_routine",
+              "childMenus": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "elementId": "menu_administration",
+      "childMenus": []
+    },
+    {
+      "elementId": "menu_help",
+      "childMenus": [
+        {
+          "elementId": "menu_help_user_manual",
+          "childMenus": []
+        }
+      ]
+    }
+  ]
+}

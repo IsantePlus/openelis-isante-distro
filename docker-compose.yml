@@ -1,0 +1,308 @@
+version: '3.6'
+
+##### OpenELIS3
+x-logging:
+  &local-logging
+  driver: "local"
+  options:
+    max-size: "20m"
+    max-file: "50"
+
+x-loki-logging:
+  &loki-logging
+  driver: "loki"
+  options:
+    max-size: "20m"
+    max-file: "50"
+    loki-url: "[% loki_url %]"
+    loki-external-labels: "container_name={{.Name}},hostname=[% host_name %]"
+    loki-pipeline-stages: |
+          - multiline:
+              firstline: '^\d{4}-\d{2}-\d{2}[T ]?\d{2}:\d{2}:\d{2}.\d{3}'
+          - labeldrop:
+              - compose_project
+              - compose_service
+              - filename
+              - source
+              - stream
+              - swarm_service
+              - swarm_stack
+services:
+    certs:
+        container_name: oe-certs 
+        image: itechuw/certgen:main
+        platform: linux/amd64  
+        restart: "no"
+        environment:
+            - KEYSTORE_PW="kspass"
+            - TRUSTSTORE_PW="tspass"
+        volumes:
+            -  key_trust-store-volume:/etc/openelis-global
+            -  keys-vol:/etc/ssl/private/
+            -  certs-vol:/etc/ssl/certs/
+
+    db.openelis.org:
+        container_name: openelisglobal-database 
+        image: itechuw/openelis-global-2-database:3.2.1.2
+        platform: linux/amd64
+        ports:
+            - "15432:5432"
+        restart: always
+        env_file:
+            - ./configs/openelis/database/database.env
+        environment:
+            - DB_PASSWORD=${OE_DB_PASSWORD}
+            - DB_SUPERUSER_PASSWORD=${ADMIN_PASSWORD}       
+        volumes:
+              # preserves the database between containers
+            - ./configs/openelis/database/data:/var/lib/postgresql/data                
+        logging: *local-logging    
+        healthcheck:
+            test: [ "CMD", "pg_isready", "-q", "-d", "clinlims", "-U", "clinlims" ]
+            timeout: 45s
+            interval: 10s
+            retries: 10 
+            
+    oe.openelis.org:
+        container_name: openelisglobal-webapp 
+        image: itechuw/openelis-global-2:3.2.1.2
+        platform: linux/amd64  
+        depends_on:
+            - db.openelis.org
+            - fhir.openelis.org
+            - certs
+        ports:
+            #- "8080:8080"
+            - "8443:8443"
+        restart: always
+        logging: *local-logging      
+        environment:
+            - DEFAULT_PW=adminADMIN! 
+            - TZ=America/New_York
+              # Config variables loaded through Tomacat server.xml
+            - CATALINA_OPTS= -Ddatasource.url=jdbc:postgresql://db.openelis.org:5432/clinlims -Ddatasource.username=clinlims -Ddatasource.password=${OE_DB_PASSWORD} -Doe.ssl.truststorepath=${SSL_TRUSTSTORE_PATH} -Doe.ssl.truststorepassword=${SSL_TRUSTSTORE_PASSWORD} -Doe.ssl.keystorepath=${SSL_KEYSTORE_PATH} -Doe.ssl.keystorepassword=${SSL_KEYSTORE_PASSWORD}
+             # Env variables passed to the common properties file
+            - SSL_KEYSTORE_PATH
+            - SSL_KEYSTORE_PASSWORD
+            - SSL_TRUSTSTORE_PATH
+            - SSL_TRUSTSTORE_PASSWORD
+        volumes:
+            -  key_trust-store-volume:/etc/openelis-global
+            - ./configs/openelis/plugins/:/var/lib/openelis-global/plugins
+            - ./configs/openelis/logs/oeLogs:/var/lib/openelis-global/logs
+            - ./configs/openelis/logs/tomcatLogs/:/usr/local/tomcat/logs
+            - ./configs/openelis/properties/SystemConfiguration.properties:/var/lib/openelis-global/properties/SystemConfiguration.properties
+            - ./configs/openelis/analyzer/analyzer-test-map.csv:/var/lib/openelis-global/analyzer/analyzer-test-map.csv
+            - ./configs/openelis/odoo/odoo-test-product-mapping.csv:/var/lib/openelis-global/odoo/odoo-test-product-mapping.csv
+            - ./configs/openelis/programs/:/var/lib/openelis-global/programs
+            - ./configs/openelis/configuration:/var/lib/openelis-global/configuration
+            - ./configs/openelis/menu/menu_config.json:/var/lib/openelis-global/menu/menu_config.json
+            
+        secrets:
+            - source: common.properties
+            
+    fhir.openelis.org:
+        container_name: external-fhir-api
+        image: hapiproject/hapi:v6.6.0-tomcat
+        #platform: linux/amd64
+        # ports:
+            # - "8081:8080"
+            # - "8444:8443"
+        depends_on:
+            - db.openelis.org
+            - certs    
+        restart: always
+        environment:
+          TZ: America/New_York
+          SPRING_CONFIG_LOCATION: file:///run/secrets/hapi_application.yaml
+
+          JAVA_OPTS: "-Djavax.net.ssl.trustStore=${SSL_TRUSTSTORE_PATH}
+                      -Djavax.net.ssl.trustStorePassword=${SSL_TRUSTSTORE_PASSWORD}
+                      -Djavax.net.ssl.trustStoreType=pkcs12
+                      -Djavax.net.ssl.keyStore=${SSL_KEYSTORE_PATH}
+                      -Djavax.net.ssl.keyStorePassword=${SSL_KEYSTORE_PASSWORD}
+                      -Djavax.net.ssl.keyStoreType=pkcs12"
+          # Config variables loaded through Tomacat server.xml            
+        #   CATALINA_OPTS: "-Dhapi.ssl.truststorepath=${SSL_TRUSTSTORE_PATH} -Dhapi.ssl.truststorepassword=${SSL_TRUSTSTORE_PASSWORD} -Dhapi.ssl.keystorepath=${SSL_KEYSTORE_PATH} -Dhapi.ssl.keystorepassword=${SSL_KEYSTORE_PASSWORD}"  
+        #   # Config variables loaded through Hapi application.yml
+        #   FHIR_DATASOURCE_URL : "jdbc:postgresql://db.openelis.org:5432/clinlims?currentSchema=clinlims"
+        #   FHIR_DATASOURCE_USERNAME: "clinlims"
+        #   FHIR_DATASOURCE_PASSWORD: ${OE_DB_PASSWORD}
+        #   FHIR_SERVER_ADRESS: "http://fhir.openelis.org:8080/fhir/"  
+
+        logging: *local-logging                       
+        #volumes:
+          #  -  key_trust-store-volume:/etc/openelis-global  
+        secrets:
+             - source: hapi_application.yaml 
+  
+        
+    frontend.openelis.org:
+        image: itechuw/openelis-global-2-frontend:3.2.1.2
+        container_name: openelisglobal-front-end
+        platform: linux/amd64
+        environment:
+            - CHOKIDAR_USEPOLLING=true
+        logging: *local-logging    
+        tty: true
+        depends_on:
+            - oe.openelis.org
+
+    proxy:
+        image: itechuw/openelis-global-2-proxy:3.2.1.2
+        platform: linux/amd64
+        container_name: openelisglobal-proxy
+        ports:
+            # - 80:80
+            - 443:443
+        volumes:
+            - certs-vol:/etc/nginx/certs/
+            - keys-vol:/etc/nginx/keys/
+            - ./configs/openelis/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+            # - /KEYSTORE_PASSWORD:/etc/nginx/private/key_pass
+            # - /etc/openelis-global/nginx.cert.pem:/etc/nginx/certs/cert.crt
+            # - /etc/openelis-global/nginx.key.pem:/etc/nginx/certs/cert.key
+        restart: unless-stopped
+        logging: *local-logging    
+        depends_on:
+            - certs
+            - frontend.openelis.org    
+
+    autoheal:
+        container_name: autoheal-oe
+        image: willfarrell/autoheal:1.2.0
+        tty: true
+        restart: always
+        environment:
+            AUTOHEAL_CONTAINER_LABEL: all
+            TZ: Africa/Nairobi
+        logging: *local-logging    
+        volumes:
+            - /var/run/docker.sock:/var/run/docker.sock     
+
+##### IsantePlus
+    # isanteplus-db:
+    #     image: ghcr.io/isanteplus/docker-isanteplus-db:v2.2.1
+    #     command: mysqld --character-set-server=utf8 --collation-server=utf8_general_ci --sql_mode=""
+    #     restart: unless-stopped
+    #     container_name: isanteplus-mysql
+    #     hostname: isanteplus-mysql
+    #     platform: linux/amd64 
+    #     ports:
+    #         - "3306:3306"
+    #     healthcheck:
+    #         test: "exit 0"
+    #     environment:
+    #         - MYSQL_DATABASE=openmrs
+    #         - MYSQL_ROOT_PASSWORD=openmrs
+    #         - MYSQL_USER=openmrs
+    #         - MYSQL_PASSWORD=openmrs
+    #         - MYSQL_ROOT_HOST=%    # Allow docker containers to connect to mysql
+    #     volumes:
+    #         - isanteplus-db-data:/var/lib/mysql
+
+    # # Note: Assumes image is built and tagged as `isanteplus/docker-isanteplus-server:ci`. 
+    # #       Change to something like `:latest` for non-ci builds.
+    # isanteplus:
+    #     restart: unless-stopped
+    #     image: ghcr.io/isanteplus/docker-isanteplus-server:v2.3.1
+    #     container_name: isanteplus
+    #     hostname: isanteplus
+    #     platform: linux/amd64 
+    #     ports:
+    #         - "8080:8080"
+    #     depends_on:
+    #         - isanteplus-db    
+    #     healthcheck:
+    #         test: "exit 0"
+    #     environment:
+    #         OMRS_JAVA_MEMORY_OPTS: -Xmx2048m -Xms1024m -XX:NewSize=128m
+    #         OMRS_CONFIG_CONNECTION_SERVER: isanteplus-mysql
+    #         OMRS_CONFIG_CREATE_DATABASE_USER: 'false'
+    #         OMRS_CONFIG_CREATE_TABLES: 'false'
+    #         OMRS_CONFIG_ADD_DEMO_DATA: 'false'
+    #         OMRS_CONFIG_CONNECTION_URL: jdbc:mysql://isanteplus-mysql:3306/openmrs?autoReconnect=true
+    #         OMRS_CONFIG_HAS_CURRENT_OPENMRS_DATABASE: 'true'
+    #         OMRS_JAVA_SERVER_OPTS: -Dfile.encoding=UTF-8 -server -Djava.security.egd=file:/dev/./urandom -Djava.awt.headless=true -Djava.awt.headlesslib=true
+    #         OMRS_CONFIG_CONNECTION_USERNAME: root
+    #         OMRS_CONFIG_CONNECTION_PASSWORD: openmrs
+    #         # JPDA_ADDRESS: 0.0.0.0:8000
+    #         # JPDA_TRANSPORT: dt_socket
+    #         # OMRS_DEV_DEBUG_PORT: 1044
+    #     volumes:
+    #         - isanteplus-data:/openmrs/data
+    #         - ./configs/isanteplus/custom_modules:/custom_modules
+
+    #OpenHIM -IOL
+    mongo:
+        image: mongo:3.4
+        container_name: openhim-mongo
+        ports:
+            - "27017:27017"
+       
+    openhim-core:
+        container_name: openhim-core
+        image: jembi/openhim-core:v7.1.0
+        restart: unless-stopped
+        environment:
+            - mongo_url=mongodb://mongo/openhim
+            - mongo_atnaUrl=mongodb://mongo/openhim
+        healthcheck:
+            test: "node /healthcheck.js"
+            interval: 20s
+            timeout: 20s
+            retries: 2
+        volumes:
+            - ./configs/openhim/configs/healthcheck.js:/healthcheck.js
+        ports:
+            - "8085:8080"
+            # - "5000:5000"
+            - "5001:5001"
+            - "5050:5050"
+            - "5051:5051"
+            - "5052:5052"
+            - "7788:7788" 
+        depends_on:
+            - mongo
+
+    openhim-console:
+        container_name: openhim-console
+        image: jembi/openhim-console:v1.15.0
+        ports:
+            - "9000:80"
+        volumes:
+            - ./configs/openhim/configs/default.json:/usr/share/nginx/html/config/default.json
+        depends_on:
+            - openhim-core   
+            - openhim-config 
+        healthcheck:
+            test: "curl -sS http://openhim-console || exit 1"
+            interval: 10s
+            timeout: 60s
+            retries: 3
+
+    # Loads Default OpenHIM Config
+    openhim-config:
+        container_name: openhim-config
+        image: ghcr.io/digi-uw/openhim-config:v0.0.0
+        platform: linux/amd64
+        volumes:
+            - ./configs/openhim/configs/openhim-config.json:/app/test-openhim-config.json
+
+                
+secrets:
+  common.properties:
+    file:  ./configs/openelis/properties/common.properties 
+  hapi_application.yaml:
+    file: ./configs/openelis/properties/hapi_application.yaml   
+
+        
+volumes:
+  oe-db-data:
+  key_trust-store-volume:
+  certs-vol:
+  keys-vol:
+  isanteplus-data: 
+  isanteplus-db-data: 
+  hapi-data:
+  hapi-fhir-db:

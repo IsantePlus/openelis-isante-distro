@@ -1,0 +1,4 @@
+testName,testSection,sampleType,loinc,isActive,isOrderable,sortOrder,unitOfMeasure,englishName,frenchName
+CD4 Absolute count (mm3),Immunology,Whole Blood,24467-3,Y,Y,,mm3,CD4 Absolute count (mm3),Dénombrement des lymphocytes CD4 (mm3)
+"CD4 percent (%)
+",Immunology,Whole Blood,20606-0,Y,Y,,%,CD4 percent (%),Dénombrement des lymphocytes CD4 (%)
