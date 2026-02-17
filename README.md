@@ -1,5 +1,11 @@
 # openelis-isante-distro
 
+## Instructions for Running this OpenELIS Setup
+
+Clone the repo 
+
+    git clone https://github.com/IsantePlus/openelis-isante-distro.git
+
 Spin up the OpenELIS and OpenHIM services 
 
 ```
@@ -14,10 +20,10 @@ Acces the services at
 | OpenHIM   |    http://localhost:9000/  |  root@openhim.org : openhim |
 
 
-## Instructions 
+## Instructions for Connecting Isanteplus To Openelis
 
 1. Ensure IsatePLUS is running. 
-1. Add/Upgrade the following [modules](./configs/isanteplus/custom_modules/) in IsantePLUS server
+1. Add/Upgrade the following [modules](./configs/isanteplus/custom_modules/) to the IsantePLUS server
 1. Ensure these Global properties are rightly set in IsatePlus as below
 
     ### LabOnFHIR Global Properties
@@ -35,7 +41,7 @@ Acces the services at
 
     ---
 
-    #### SSL Configuration (In case SSL AuthType is used)
+    #### SSL Configuration (needed In case AuthType is set to SSL)
 
     | Property | Description | Default Value |
     |---------|-------------|---------------|
