@@ -79,7 +79,8 @@ Acces the services at
     | `labonfhir.openElisUrl` | OpenELIS URL for iSantePlus Lab Form compatibility | `http://localhost:5001/fhir/` |
 
 
-1. Ensure Add the Right Test Catalogue to OpenELIS ie tests with `Loinc Codes` ie add more tests to the [test config](./configs/openelis/configuration/backend/tests/isante-tests.csv) or via the UI
+1. Ensure Add the Right Test Catalogue to OpenELIS ( Tests with `Loinc Codes` .
+This can be done via the [test config](./configs/openelis/configuration/backend/tests/isante-tests.csv) files for Innitialization at Startup or Manually via the UI
 
 1. To send an Order from IsantePlus to OpenELIS , Go to the Patient Dashboard , Open the Laboratory form , select `OpenELIS` as the destination , select tests and send.
 
