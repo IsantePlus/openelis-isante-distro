@@ -20,7 +20,7 @@ Acces the services at
 | OpenHIM   |    http://localhost:9000/  |  root@openhim.org : openhim |
 
 
-## Instructions for Connecting Isanteplus To Openelis
+## Instructions for Connecting IsantePLUS To OpenELIS Through OpenHIM
 
 1. Ensure IsantePLUS is running. 
 1. Add/Upgrade the following [modules](./configs/isanteplus/custom_modules/) to the IsantePLUS server
