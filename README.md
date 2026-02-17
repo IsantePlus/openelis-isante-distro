@@ -22,7 +22,7 @@ Acces the services at
 
 ## Instructions for Connecting Isanteplus To Openelis
 
-1. Ensure IsatePLUS is running. 
+1. Ensure IsantePLUS is running. 
 1. Add/Upgrade the following [modules](./configs/isanteplus/custom_modules/) to the IsantePLUS server
 1. Ensure these Global properties are rightly set in IsatePlus as below
 
