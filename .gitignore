@@ -22,5 +22,5 @@ configs/openelis/logs/
 configs/openelis/database/data/
 **/*checksum*.properties
 **/*checksums*.properties
-configs/properties/TotalSystemConfiguration.properties
-configs/properties/ChangedSystemConfiguration.properties
+configs/openelis/properties/TotalSystemConfiguration.properties
+configs/openelis/properties/ChangedSystemConfiguration.properties
