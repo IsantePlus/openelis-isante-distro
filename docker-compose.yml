@@ -65,7 +65,7 @@ services:
             
     oe.openelis.org:
         container_name: openelisglobal-webapp 
-        image: itechuw/openelis-global-2:3.2.1.2
+        image: itechuw/openelis-global-2:develop
         platform: linux/amd64  
         depends_on:
             - db.openelis.org
@@ -91,7 +91,7 @@ services:
             - ./configs/openelis/plugins/:/var/lib/openelis-global/plugins
             - ./configs/openelis/logs/oeLogs:/var/lib/openelis-global/logs
             - ./configs/openelis/logs/tomcatLogs/:/usr/local/tomcat/logs
-            - ./configs/openelis/properties/SystemConfiguration.properties:/var/lib/openelis-global/properties/SystemConfiguration.properties
+            - ./configs/openelis/properties:/var/lib/openelis-global/properties
             - ./configs/openelis/analyzer/analyzer-test-map.csv:/var/lib/openelis-global/analyzer/analyzer-test-map.csv
             - ./configs/openelis/odoo/odoo-test-product-mapping.csv:/var/lib/openelis-global/odoo/odoo-test-product-mapping.csv
             - ./configs/openelis/programs/:/var/lib/openelis-global/programs
@@ -138,7 +138,7 @@ services:
   
         
     frontend.openelis.org:
-        image: itechuw/openelis-global-2-frontend:3.2.1.2
+        image: itechuw/openelis-global-2-frontend:develop
         container_name: openelisglobal-front-end
         platform: linux/amd64
         environment:
@@ -149,7 +149,7 @@ services:
             - oe.openelis.org
 
     proxy:
-        image: itechuw/openelis-global-2-proxy:3.2.1.2
+        image: itechuw/openelis-global-2-proxy:3.2.1.4
         platform: linux/amd64
         container_name: openelisglobal-proxy
         ports:
