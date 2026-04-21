@@ -1,1 +1,96 @@
 category,dictEntry,localAbbreviation,isActive,sortOrder,loincCode,localization:en,localization:fr,localization:es,localization:id
+Test Result,Negative,ISANTE-001-Neg,Y,1,0000-016,Negative,Negative,Negative,Negative
+Test Result,POSITIVE,ISANTE-002-POS,Y,2,0000-017,POSITIVE,POSITIVE,POSITIVE,POSITIVE
+Test Result,INDETERMINATE,ISANTE-003-IND,Y,3,0000-018,INDETERMINATE,INDETERMINATE,INDETERMINATE,INDETERMINATE
+Test Result,POOR SAMPLE QUALITY,ISANTE-004-POO,Y,4,0000-019,POOR SAMPLE QUALITY,POOR SAMPLE QUALITY,POOR SAMPLE QUALITY,POOR SAMPLE QUALITY
+Test Result,A POSITIVE,ISANTE-005-A P,Y,5,0000-020,A POSITIVE,A POSITIVE,A POSITIVE,A POSITIVE
+Test Result,A NEGATIVE,ISANTE-006-A N,Y,6,0000-021,A NEGATIVE,A NEGATIVE,A NEGATIVE,A NEGATIVE
+Test Result,B POSITIVE,ISANTE-007-B P,Y,7,0000-022,B POSITIVE,B POSITIVE,B POSITIVE,B POSITIVE
+Test Result,B NEGATIVE,ISANTE-008-B N,Y,8,0000-023,B NEGATIVE,B NEGATIVE,B NEGATIVE,B NEGATIVE
+Test Result,O POSITIVE,ISANTE-009-O P,Y,9,0000-024,O POSITIVE,O POSITIVE,O POSITIVE,O POSITIVE
+Test Result,O NEGATIVE,ISANTE-010-O N,Y,10,0000-025,O NEGATIVE,O NEGATIVE,O NEGATIVE,O NEGATIVE
+Test Result,AB POSITIVE,ISANTE-011-AB ,Y,11,0000-026,AB POSITIVE,AB POSITIVE,AB POSITIVE,AB POSITIVE
+Test Result,AB NEGATIVE,ISANTE-012-AB ,Y,12,0000-027,AB NEGATIVE,AB NEGATIVE,AB NEGATIVE,AB NEGATIVE
+Test Result,Cestode Infection,ISANTE-013-Ces,Y,13,0000-028,Cestode Infection,Cestode Infection,Cestode Infection,Cestode Infection
+Test Result,Infection by Ascaris Lumbricoides,ISANTE-014-Inf,Y,14,0000-029,Infection by Ascaris Lumbricoides,Infection by Ascaris Lumbricoides,Infection by Ascaris Lumbricoides,Infection by Ascaris Lumbricoides
+Test Result,Ancylostomiasis due to Ancylostoma Duodenale,ISANTE-015-Anc,Y,15,0000-030,Ancylostomiasis due to Ancylostoma Duodenale,Ancylostomiasis due to Ancylostoma Duodenale,Ancylostomiasis due to Ancylostoma Duodenale,Ancylostomiasis due to Ancylostoma Duodenale
+Test Result,Schistosoma Mansonii Infection,ISANTE-016-Sch,Y,16,0000-031,Schistosoma Mansonii Infection,Schistosoma Mansonii Infection,Schistosoma Mansonii Infection,Schistosoma Mansonii Infection
+Test Result,Other,ISANTE-017-Oth,Y,17,0000-032,Other,Other,Other,Other
+Test Result,Infection due to Entamoeba Histolytica,ISANTE-018-Inf,Y,18,0000-033,Infection due to Entamoeba Histolytica,Infection due to Entamoeba Histolytica,Infection due to Entamoeba Histolytica,Infection due to Entamoeba Histolytica
+Test Result,NON-REACTIVE,ISANTE-019-NON,Y,19,0000-034,NON-REACTIVE,NON-REACTIVE,NON-REACTIVE,NON-REACTIVE
+Test Result,REACTIVE,ISANTE-020-REA,Y,20,0000-035,REACTIVE,REACTIVE,REACTIVE,REACTIVE
+Test Result,THREE PLUS,ISANTE-021-THR,Y,21,0000-036,THREE PLUS,THREE PLUS,THREE PLUS,THREE PLUS
+Test Result,ONE PLUS,ISANTE-022-ONE,Y,22,0000-037,ONE PLUS,ONE PLUS,ONE PLUS,ONE PLUS
+Test Result,TWO PLUS,ISANTE-023-TWO,Y,23,0000-038,TWO PLUS,TWO PLUS,TWO PLUS,TWO PLUS
+Test Result,Scanty,ISANTE-024-Sca,Y,24,0000-039,Scanty,Scanty,Scanty,Scanty
+Test Result,Contaminated specimen,ISANTE-025-Con,Y,25,0000-040,Contaminated specimen,Contaminated specimen,Contaminated specimen,Contaminated specimen
+Test Result,Results not available,ISANTE-026-Res,Y,26,0000-041,Results not available,Results not available,Results not available,Results not available
+Test Result,Not done,ISANTE-027-Not,Y,27,0000-042,Not done,Not done,Not done,Not done
+Test Result,EQUIVOCAL,ISANTE-028-EQU,Y,28,0000-043,EQUIVOCAL,EQUIVOCAL,EQUIVOCAL,EQUIVOCAL
+Test Result,<1:2,ISANTE-029-<1:,Y,29,0000-044,<1:2,<1:2,<1:2,<1:2
+Test Result,1:2,ISANTE-030-1:2,Y,30,0000-045,1:2,1:2,1:2,1:2
+Test Result,1:4,ISANTE-031-1:4,Y,31,0000-046,1:4,1:4,1:4,1:4
+Test Result,1:8,ISANTE-032-1:8,Y,32,0000-047,1:8,1:8,1:8,1:8
+Test Result,1:16,ISANTE-033-1:1,Y,33,0000-048,1:16,1:16,1:16,1:16
+Test Result,1:32,ISANTE-034-1:3,Y,34,0000-049,1:32,1:32,1:32,1:32
+Test Result,>1:32,ISANTE-035->1:,Y,35,0000-050,>1:32,>1:32,>1:32,>1:32
+Test Result,1:64,ISANTE-036-1:6,Y,36,0000-051,1:64,1:64,1:64,1:64
+Test Result,1:128,ISANTE-037-1:1,Y,37,0000-052,1:128,1:128,1:128,1:128
+Test Result,1:256,ISANTE-038-1:2,Y,38,0000-053,1:256,1:256,1:256,1:256
+Test Result,>1:572,ISANTE-039->1:,Y,39,0000-054,>1:572,>1:572,>1:572,>1:572
+Test Result,Unknown,ISANTE-040-Unk,Y,40,0000-055,Unknown,Unknown,Unknown,Unknown
+Test Result,Procedure Refused,ISANTE-041-Pro,Y,41,0000-056,Procedure Refused,Procedure Refused,Procedure Refused,Procedure Refused
+Test Result,FOUR PLUS,ISANTE-042-FOU,Y,42,0000-057,FOUR PLUS,FOUR PLUS,FOUR PLUS,FOUR PLUS
+Test Result,Test not performed due to lack of availability of test materials,ISANTE-043-Tes,Y,43,0000-058,Test not performed due to lack of availability of test materials,Test not performed due to lack of availability of test materials,Test not performed due to lack of availability of test materials,Test not performed due to lack of availability of test materials
+Test Result,Procedure not performed,ISANTE-044-Pro,Y,44,0000-059,Procedure not performed,Procedure not performed,Procedure not performed,Procedure not performed
+Test Result,Positive for Plasmodium falciparum,ISANTE-045-Pos,Y,45,0000-060,Positive for Plasmodium falciparum,Positive for Plasmodium falciparum,Positive for Plasmodium falciparum,Positive for Plasmodium falciparum
+Test Result,Positive for Plasmodium vivax,ISANTE-046-Pos,Y,46,0000-061,Positive for Plasmodium vivax,Positive for Plasmodium vivax,Positive for Plasmodium vivax,Positive for Plasmodium vivax
+Test Result,Positive for both Plasmodium falciparum and Plasmodium vivax,ISANTE-047-Pos,Y,47,0000-062,Positive for both Plasmodium falciparum and Plasmodium vivax,Positive for both Plasmodium falciparum and Plasmodium vivax,Positive for both Plasmodium falciparum and Plasmodium vivax,Positive for both Plasmodium falciparum and Plasmodium vivax
+Test Result,TRACE,ISANTE-048-TRA,Y,48,0000-063,TRACE,TRACE,TRACE,TRACE
+Test Result,resistant to anti-tuberculosis drugs,ISANTE-049-res,Y,49,0000-064,resistant to anti-tuberculosis drugs,resistant to anti-tuberculosis drugs,resistant to anti-tuberculosis drugs,resistant to anti-tuberculosis drugs
+Test Result,susceptible to anti-tuberculosis drugs,ISANTE-050-sus,Y,50,0000-065,susceptible to anti-tuberculosis drugs,susceptible to anti-tuberculosis drugs,susceptible to anti-tuberculosis drugs,susceptible to anti-tuberculosis drugs
+Test Result,Intermediate resistance to anti-tubercular drugs,ISANTE-051-Int,Y,51,0000-066,Intermediate resistance to anti-tubercular drugs,Intermediate resistance to anti-tubercular drugs,Intermediate resistance to anti-tubercular drugs,Intermediate resistance to anti-tubercular drugs
+Test Result,concentration,ISANTE-052-con,Y,52,0000-067,concentration,concentration,concentration,concentration
+Test Result,contaminated drug sensitivity testing,ISANTE-053-con,Y,53,0000-068,contaminated drug sensitivity testing,contaminated drug sensitivity testing,contaminated drug sensitivity testing,contaminated drug sensitivity testing
+Test Result,colonies,ISANTE-054-col,Y,54,0000-069,colonies,colonies,colonies,colonies
+Test Result,waiting for test results,ISANTE-055-wai,Y,55,0000-070,waiting for test results,waiting for test results,waiting for test results,waiting for test results
+Test Result,Blood compatible,ISANTE-056-Blo,Y,56,0000-071,Blood compatible,Blood compatible,Blood compatible,Blood compatible
+Test Result,Incompatible blood,ISANTE-057-Inc,Y,57,0000-072,Incompatible blood,Incompatible blood,Incompatible blood,Incompatible blood
+Test Result,Bancroftian filariasis,ISANTE-058-Ban,Y,58,0000-073,Bancroftian filariasis,Bancroftian filariasis,Bancroftian filariasis,Bancroftian filariasis
+Test Result,Mansonella Ozzardi Infection,ISANTE-059-Man,Y,59,0000-074,Mansonella Ozzardi Infection,Mansonella Ozzardi Infection,Mansonella Ozzardi Infection,Mansonella Ozzardi Infection
+Test Result,Urine appears clear,ISANTE-060-Uri,Y,60,0000-075,Urine appears clear,Urine appears clear,Urine appears clear,Urine appears clear
+Test Result,Cloudy urine,ISANTE-061-Clo,Y,61,0000-076,Cloudy urine,Cloudy urine,Cloudy urine,Cloudy urine
+Test Result,Urine appears turbid,ISANTE-062-Uri,Y,62,0000-077,Urine appears turbid,Urine appears turbid,Urine appears turbid,Urine appears turbid
+Test Result,Colourless,ISANTE-063-Col,Y,63,0000-078,Colourless,Colourless,Colourless,Colourless
+Test Result,Red color,ISANTE-064-Red,Y,64,0000-079,Red color,Red color,Red color,Red color
+Test Result,Light yellow colour,ISANTE-065-Lig,Y,65,0000-080,Light yellow colour,Light yellow colour,Light yellow colour,Light yellow colour
+Test Result,Yellow-green colour,ISANTE-066-Yel,Y,66,0000-081,Yellow-green colour,Yellow-green colour,Yellow-green colour,Yellow-green colour
+Test Result,Dark yellow colour,ISANTE-067-Dar,Y,67,0000-082,Dark yellow colour,Dark yellow colour,Dark yellow colour,Dark yellow colour
+Test Result,Brown color,ISANTE-068-Bro,Y,68,0000-083,Brown color,Brown color,Brown color,Brown color
+Test Result,Black color,ISANTE-069-Bla,Y,69,0000-084,Black color,Black color,Black color,Black color
+Test Result,Yellow color,ISANTE-070-Yel,Y,70,0000-085,Yellow color,Yellow color,Yellow color,Yellow color
+Test Result,bloody,ISANTE-071-blo,Y,71,0000-086,bloody,bloody,bloody,bloody
+Test Result,Green color,ISANTE-072-Gre,Y,72,0000-087,Green color,Green color,Green color,Green color
+Test Result,Orange color,ISANTE-073-Ora,Y,73,0000-088,Orange color,Orange color,Orange color,Orange color
+Test Result,Yellowish white,ISANTE-074-Yel,Y,74,0000-089,Yellowish white,Yellowish white,Yellowish white,Yellowish white
+Test Result,Moderate,ISANTE-075-Mod,Y,75,0000-090,Moderate,Moderate,Moderate,Moderate
+Test Result,None,ISANTE-076-Non,Y,76,0000-091,None,None,None,None
+Test Result,High,ISANTE-077-Hig,Y,77,0000-092,High,High,High,High
+Test Result,Rarely,ISANTE-078-Rar,Y,78,0000-093,Rarely,Rarely,Rarely,Rarely
+Test Result,FEW,ISANTE-079-FEW,Y,79,0000-094,FEW,FEW,FEW,FEW
+Test Result,AMORPHOUS PHOSPHATE CRYSTALS,ISANTE-080-AMO,Y,80,0000-095,AMORPHOUS PHOSPHATE CRYSTALS,AMORPHOUS PHOSPHATE CRYSTALS,AMORPHOUS PHOSPHATE CRYSTALS,AMORPHOUS PHOSPHATE CRYSTALS
+Test Result,Ammonium urate crystals in urine,ISANTE-081-Amm,Y,81,5766-1,Ammonium urate crystals in urine,Ammonium urate crystals in urine,Ammonium urate crystals in urine,Ammonium urate crystals in urine
+Test Result,Amorphous urate crystals in urine,ISANTE-082-Amo,Y,82,12454-5,Amorphous urate crystals in urine,Amorphous urate crystals in urine,Amorphous urate crystals in urine,Amorphous urate crystals in urine
+Test Result,CALCIUM PHOSPHATE,ISANTE-083-CAL,Y,83,0000-096,CALCIUM PHOSPHATE,CALCIUM PHOSPHATE,CALCIUM PHOSPHATE,CALCIUM PHOSPHATE
+Test Result,MAGNESIUM PHOSPHATE,ISANTE-084-MAG,Y,84,0000-097,MAGNESIUM PHOSPHATE,MAGNESIUM PHOSPHATE,MAGNESIUM PHOSPHATE,MAGNESIUM PHOSPHATE
+Test Result,Uric Acid Crystalluria,ISANTE-085-Uri,Y,85,0000-098,Uric Acid Crystalluria,Uric Acid Crystalluria,Uric Acid Crystalluria,Uric Acid Crystalluria
+Test Result,"Urinary Cast, Hyaline",ISANTE-086-Uri,Y,86,0000-099,"Urinary Cast, Hyaline","Urinary Cast, Hyaline","Urinary Cast, Hyaline","Urinary Cast, Hyaline"
+Test Result,CALCIUM SULFATE,ISANTE-087-CAL,Y,87,0000-100,CALCIUM SULFATE,CALCIUM SULFATE,CALCIUM SULFATE,CALCIUM SULFATE
+Test Result,CALCIUM OXALATE CRYSTALS,ISANTE-088-CAL,Y,88,0000-101,CALCIUM OXALATE CRYSTALS,CALCIUM OXALATE CRYSTALS,CALCIUM OXALATE CRYSTALS,CALCIUM OXALATE CRYSTALS
+Test Result,CYSTINE,ISANTE-089-CYS,Y,89,0000-102,CYSTINE,CYSTINE,CYSTINE,CYSTINE
+Test Result,Triple phosphate crystals,ISANTE-090-Tri,Y,90,46137-6,Triple phosphate crystals,Triple phosphate crystals,Triple phosphate crystals,Triple phosphate crystals
+Test Result,Granular casts presence in urine sediment by light microscopy test,ISANTE-091-Gra,Y,91,25160-3,Granular casts presence in urine sediment by light microscopy test,Granular casts presence in urine sediment by light microscopy test,Granular casts presence in urine sediment by light microscopy test,Granular casts presence in urine sediment by light microscopy test
+Test Result,Fatty casts presence in urine sediment by light microscopy test,ISANTE-092-Fat,Y,92,25159-5,Fatty casts presence in urine sediment by light microscopy test,Fatty casts presence in urine sediment by light microscopy test,Fatty casts presence in urine sediment by light microscopy test,Fatty casts presence in urine sediment by light microscopy test
+Test Result,Waxy casts presence in urine sediment by light microscopy test,ISANTE-093-Wax,Y,93,33862-4,Waxy casts presence in urine sediment by light microscopy test,Waxy casts presence in urine sediment by light microscopy test,Waxy casts presence in urine sediment by light microscopy test,Waxy casts presence in urine sediment by light microscopy test
+Test Result,WBC casts presence in urine sediment by light microscopy test,ISANTE-094-WBC,Y,94,33825-1,WBC casts presence in urine sediment by light microscopy test,WBC casts presence in urine sediment by light microscopy test,WBC casts presence in urine sediment by light microscopy test,WBC casts presence in urine sediment by light microscopy test
+Test Result,Epithelial casts presence in urine sediment by light microscopy test,ISANTE-095-Epi,Y,95,25157-9,Epithelial casts presence in urine sediment by light microscopy test,Epithelial casts presence in urine sediment by light microscopy test,Epithelial casts presence in urine sediment by light microscopy test,Epithelial casts presence in urine sediment by light microscopy test

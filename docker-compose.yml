@@ -200,6 +200,7 @@ services:
     #         - MYSQL_ROOT_HOST=%    # Allow docker containers to connect to mysql
     #     volumes:
     #         - isanteplus-db-data:/var/lib/mysql
+    #         - ./configs/isanteplus/concepts_update:/openmrs/concepts_update
 
     # # Note: Assumes image is built and tagged as `isanteplus/docker-isanteplus-server:ci`. 
     # #       Change to something like `:latest` for non-ci builds.

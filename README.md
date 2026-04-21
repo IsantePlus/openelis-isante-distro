@@ -24,6 +24,7 @@ Acces the services at
 
 1. Ensure IsantePLUS is running. 
 1. Add/Upgrade the following [modules](./configs/isanteplus/custom_modules/) to the IsantePLUS server
+1. create a directory `/openmrs/concepts_update` and put this [concepts file](./configs/isanteplus/concepts_update/concepts.csv) there in oder to update the Lab Tests with the missing Concepts
 1. Ensure these Global properties are rightly set in IsatePlus as below
 
     ### LabOnFHIR Global Properties
@@ -80,7 +81,7 @@ Acces the services at
 
 
 1. Ensure to Add the Right Test Catalogue to OpenELIS ( Tests with `Loinc Codes`) .
-This can be done via the [test config](./configs/openelis/configuration/backend/tests/isante-tests.csv) files for Innitialization at Startup or Manually via the UI
+This can be done via the [test config](./configs/openelis/configuration/backend/tests/example-tests.csv) files for Innitialization at Startup or Manually via the UI
 
 1. To send an Order from IsantePlus to OpenELIS , Go to the Patient Dashboard , Open the Laboratory form , select `OpenELIS` as the destination , select tests and send.
 
