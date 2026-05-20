@@ -46,22 +46,60 @@
         }
       ]
     },
-    {
-      "elementId": "menu_nonconformity",
-      "childMenus": [
+     {
+      "elementId": "menu_storage",
+      "childMenus": [ 
         {
-          "elementId": "menu_non_conforming_report",
-          "childMenus": []
+          "elementId": "menu_storage_management",
+          "childMenus": ["*"]
         },
         {
-          "elementId": "menu_non_conforming_view",
-          "childMenus": []
-        },
-        {
-          "elementId": "menu_non_conforming_corrective_actions",
-          "childMenus": []
+          "elementId": "menu_freezer_monitoring",
+          "childMenus": ["*"]
         }
       ]
+    },
+     {
+      "elementId": "menu_sample_shipment",
+      "childMenus": ["*"]
+    },
+     {
+      "elementId": "menu_eqa_tests",
+      "childMenus": ["*"]
+    },
+    
+     {
+      "elementId": "menu_eqa_mgmt",
+      "childMenus": ["*"]
+    },
+     {
+      "elementId": "menu_alerts_standalone",
+      "childMenus": ["*"]
+    },
+     {
+      "elementId": "menu_analyzers",
+      "childMenus": [
+        {
+          "elementId": "menu_analyzers_list",
+          "childMenus": []
+        },
+        {
+          "elementId": "menu_analyzers_errors",
+          "childMenus": []
+        },
+        {
+          "elementId": "menu_analyzers_types",
+          "childMenus": []
+        },
+        {
+          "elementId": "menu_analyzers_qc",
+          "childMenus": ["*"]
+        }
+      ]
+    },
+    {
+      "elementId": "menu_nonconformity",
+      "childMenus": ["*"]
     },
     {
       "elementId": "menu_workplan",
@@ -117,16 +155,7 @@
         },
         {
           "elementId": "menu_results_analyzer",
-          "childMenus": [
-            {
-              "elementId": "PocH100iAnalyzer_plugin",
-              "childMenus": []
-            },
-            {
-              "elementId": "GeneXpertAnalyzer_plugin",
-              "childMenus": []
-            }
-          ]
+          "childMenus": ["*"]
         }
       ]
     },
@@ -234,11 +263,23 @@
               "childMenus": []
             }
           ]
+        },
+        {
+          "elementId": "menu_reports_audittrail",
+          "childMenus": ["*"]
+        },
+        {
+          "elementId": "menu_reports_tatreport",
+          "childMenus": []
         }
       ]
     },
     {
       "elementId": "menu_administration",
+      "childMenus": []
+    },
+    {
+      "elementId": "menu_aliquot",
       "childMenus": []
     },
     {
@@ -252,3 +293,4 @@
     }
   ]
 }
+

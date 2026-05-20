@@ -39,6 +39,8 @@ Acces the services at
     | `labonfhir.authType` | HTTP Auth Type (Basic / SSL) | `Basic` |
     | `labonfhir.userName` | User name for HTTP Basic Auth with the LIS | `IsantePLUS` |
     | `labonfhir.password` | Password for HTTP Basic Auth with the LIS | `admin` |
+    | `labonfhir.createObsGroup` | Creates Obs groups to parse results into Lab Form | `true` |
+    
 
     ---
 
