@@ -108,18 +108,17 @@ services:
             
     fhir.openelis.org:
         container_name: external-fhir-api
-        image: hapiproject/hapi:v6.6.0-tomcat
-        #platform: linux/amd64
-        # ports:
-            # - "8081:8080"
-            # - "8444:8443"
+        image: itechuw/openelis-global-2-fhir:3.2.1.9
+        platform: linux/amd64
+        ports:
+            - "8081:8080"
+            - "8444:8443"
         depends_on:
             - db.openelis.org
             - certs    
         restart: always
         environment:
           TZ: America/New_York
-          SPRING_CONFIG_LOCATION: file:///run/secrets/hapi_application.yaml
 
           JAVA_OPTS: "-Djavax.net.ssl.trustStore=${SSL_TRUSTSTORE_PATH}
                       -Djavax.net.ssl.trustStorePassword=${SSL_TRUSTSTORE_PASSWORD}
@@ -128,19 +127,16 @@ services:
                       -Djavax.net.ssl.keyStorePassword=${SSL_KEYSTORE_PASSWORD}
                       -Djavax.net.ssl.keyStoreType=pkcs12"
           # Config variables loaded through Tomacat server.xml            
-        #   CATALINA_OPTS: "-Dhapi.ssl.truststorepath=${SSL_TRUSTSTORE_PATH} -Dhapi.ssl.truststorepassword=${SSL_TRUSTSTORE_PASSWORD} -Dhapi.ssl.keystorepath=${SSL_KEYSTORE_PATH} -Dhapi.ssl.keystorepassword=${SSL_KEYSTORE_PASSWORD}"  
-        #   # Config variables loaded through Hapi application.yml
-        #   FHIR_DATASOURCE_URL : "jdbc:postgresql://db.openelis.org:5432/clinlims?currentSchema=clinlims"
-        #   FHIR_DATASOURCE_USERNAME: "clinlims"
-        #   FHIR_DATASOURCE_PASSWORD: ${OE_DB_PASSWORD}
-        #   FHIR_SERVER_ADRESS: "http://fhir.openelis.org:8080/fhir/"  
+          CATALINA_OPTS: "-Dhapi.ssl.truststorepath=${SSL_TRUSTSTORE_PATH} -Dhapi.ssl.truststorepassword=${SSL_TRUSTSTORE_PASSWORD} -Dhapi.ssl.keystorepath=${SSL_KEYSTORE_PATH} -Dhapi.ssl.keystorepassword=${SSL_KEYSTORE_PASSWORD}"  
+          # Config variables loaded through Hapi application.yml
+          FHIR_DATASOURCE_URL : "jdbc:postgresql://db.openelis.org:5432/clinlims?currentSchema=clinlims"
+          FHIR_DATASOURCE_USERNAME: "clinlims"
+          FHIR_DATASOURCE_PASSWORD: ${OE_DB_PASSWORD}
+          FHIR_SERVER_ADRESS: "http://fhir.openelis.org:8080/fhir/"  
 
         logging: *local-logging                       
-        #volumes:
-          #  -  key_trust-store-volume:/etc/openelis-global  
-        secrets:
-             - source: hapi_application.yaml 
-  
+        volumes:
+           -  key_trust-store-volume:/etc/openelis-global   
         
     frontend.openelis.org:
         image: itechuw/openelis-global-2-frontend:3.2.1.9
@@ -254,6 +250,7 @@ services:
         environment:
             - mongo_url=mongodb://mongo/openhim
             - mongo_atnaUrl=mongodb://mongo/openhim
+            - NODE_EXTRA_CA_CERTS=/etc/nginx/certs/apache-selfsigned.crt
         healthcheck:
             test: "node /healthcheck.js"
             interval: 20s
@@ -261,6 +258,9 @@ services:
             retries: 2
         volumes:
             - ./configs/openhim/configs/healthcheck.js:/healthcheck.js
+            - ./configs/openhim/configs/openhim-core_default.json:/app/config/default.json
+            - certs-vol:/etc/nginx/certs/
+            - keys-vol:/etc/nginx/keys/
         ports:
             - "8085:8080"
             # - "5000:5000"
@@ -341,9 +341,7 @@ services:
                 
 secrets:
   common.properties:
-    file:  ./configs/openelis/properties/common.properties 
-  hapi_application.yaml:
-    file: ./configs/openelis/properties/hapi_application.yaml   
+    file:  ./configs/openelis/properties/common.properties   
 
         
 volumes:

@@ -24,6 +24,41 @@ Acces the services at
 
 1. Ensure IsantePLUS is running. 
 1. Add/Upgrade the following [modules](./configs/isanteplus/custom_modules/) to the IsantePLUS server
+
+Note: these modules can be built from their corresponding repositories using the commands below. After each build, the resulting `.omod` artifact can be found in the module's `omod/target/` directory and should be copied into the IsantePLUS server's `modules` directory (or uploaded via the Admin UI).
+
+1. **Lab on FHIR**
+
+   ```bash
+   git clone https://github.com/openmrs/openmrs-module-labonfhir.git -b platform_2.0.5
+   cd openmrs-module-labonfhir
+   mvn clean install
+   ```
+
+2. **FHIR2 Module**
+
+   ```bash
+   git clone https://github.com/openmrs/openmrs-module-fhir2.git -b 1.11.0
+   cd openmrs-module-fhir2
+   mvn clean install
+   ```
+
+3. **iSantePlus**
+
+   ```bash
+   git clone https://github.com/charess-org/iSantePlus.git -b main
+   cd iSantePlus
+   mvn clean install
+   ```
+
+4. **Lab Integration**
+
+   ```bash
+   git clone https://github.com/IsantePlus/openmrs-module-labintegration.git
+   cd openmrs-module-labintegration
+   mvn clean install
+   ```
+
 1. create a directory `/openmrs/concepts_update` and put this [concepts file](./configs/isanteplus/concepts_update/concepts.csv) there in oder to update the Lab Tests with the missing Concepts
 1. Ensure these Global properties are rightly set in IsatePlus as below
 
@@ -39,7 +74,7 @@ Acces the services at
     | `labonfhir.authType` | HTTP Auth Type (Basic / SSL) | `Basic` |
     | `labonfhir.userName` | User name for HTTP Basic Auth with the LIS | `IsantePLUS` |
     | `labonfhir.password` | Password for HTTP Basic Auth with the LIS | `admin` |
-    | `labonfhir.createObsGroup` | Creates Obs groups to parse results into Lab Form | `true` |
+   
     
 
     ---
@@ -72,6 +107,7 @@ Acces the services at
     | `labonfhir.labUpdateTriggerObject` | The OpenMRS object type that should trigger LIS synchronization — Encounter or Order | `Encounter` |
     | `labonfhir.addObsAsTaskInput` | Allows adding Obs as Task Input | `false` |
     | `labonfhir.filterOrderBytestUuids` | Allows filtering Orders by Test UUIDs | `false` |
+    | `labonfhir.createObsGroup` | Creates Obs groups to parse results into Lab Form | `true` |
 
     ---
 
