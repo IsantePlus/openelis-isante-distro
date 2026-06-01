@@ -1,6 +1,6 @@
 testName,testSection,sampleType,loinc,isActive,isOrderable,sortOrder,unitOfMeasure,localization:en,localization:fr,localization:es,localization:id
 Hemoglobin,Hematology,Whole Blood,718-7,Y,Y,1,g/dl,Hemoglobin,Hémoglobine,,
-Urine prenancy test,Hematology,Urines,2106-3,Y,Y,2,,Urine prenancy test,Test urinaire de grossesse,,
+Urine pregnancy test,Hematology,Urines,2106-3,Y,Y,2,,Urine prenancy test,Test urinaire de grossesse,,
 BLOOD TYPING,Hematology,Whole Blood,882-1,Y,Y,3,,BLOOD TYPING,BLOOD TYPING,,
 Stool exam,Hematology,Whole Blood,10704-5,Y,Y,4,,Stool exam,Stool exam,,
 WIDAL TEST,Hematology,Whole Blood,17566-1,Y,Y,5,,WIDAL TEST,WIDAL TEST,,
