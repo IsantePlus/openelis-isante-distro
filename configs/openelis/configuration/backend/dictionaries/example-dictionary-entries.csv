@@ -1,7 +1,7 @@
 category,dictEntry,localAbbreviation,isActive,sortOrder,loincCode,localization:en,localization:fr,localization:es,localization:id
-Test Result,Negative (Confirmed),ISANTE-001-Neg,Y,1,0000-016,Negative (Confirmed),Negative (Confirmed),Negative (Confirmed),Negative (Confirmed)
-Test Result,Positive (Confirmed),ISANTE-002-POS,Y,2,0000-017,Positive (Confirmed),Positive (Confirmed),Positive (Confirmed),Positive (Confirmed)
-Test Result,Indeterminate (Confirmed),ISANTE-003-IND,Y,3,0000-018,Indeterminate (Confirmed),Indeterminate (Confirmed),Indeterminate (Confirmed),Indeterminate (Confirmed)
+HL,Negatif,ISANTE-001-Neg,Y,1,0000-016,Negative ,Negative ,Negative ,Negative 
+HL,Positif,ISANTE-002-POS,Y,2,0000-017,Positive ,Positive ,Positive ,Positive 
+V,INDETERMINATE,ISANTE-003-IND,Y,3,0000-018,Indeterminate ,Indeterminate ,Indeterminate ,Indeterminate 
 Test Result,POOR SAMPLE QUALITY,ISANTE-004-POO,Y,4,0000-019,POOR SAMPLE QUALITY,POOR SAMPLE QUALITY,POOR SAMPLE QUALITY,POOR SAMPLE QUALITY
 Test Result,A POSITIVE,ISANTE-005-A P,Y,5,0000-020,A POSITIVE,A POSITIVE,A POSITIVE,A POSITIVE
 Test Result,A NEGATIVE,ISANTE-006-A N,Y,6,0000-021,A NEGATIVE,A NEGATIVE,A NEGATIVE,A NEGATIVE
@@ -19,9 +19,9 @@ Test Result,Other,ISANTE-017-Oth,Y,17,0000-032,Other,Other,Other,Other
 Test Result,Infection due to Entamoeba Histolytica,ISANTE-018-Inf,Y,18,0000-033,Infection due to Entamoeba Histolytica,Infection due to Entamoeba Histolytica,Infection due to Entamoeba Histolytica,Infection due to Entamoeba Histolytica
 Test Result,NON-REACTIVE,ISANTE-019-NON,Y,19,0000-034,NON-REACTIVE,NON-REACTIVE,NON-REACTIVE,NON-REACTIVE
 Test Result,REACTIVE,ISANTE-020-REA,Y,20,0000-035,REACTIVE,REACTIVE,REACTIVE,REACTIVE
-Test Result,3 (+),ISANTE-021-THR,Y,21,0000-036,3 (+),3 (+),3 (+),3 (+)
-Test Result,1 (+),ISANTE-022-ONE,Y,22,0000-037,1 (+),1 (+),1 (+),1 (+)
-Test Result,2 (+),ISANTE-023-TWO,Y,23,0000-038,2 (+),2 (+),2 (+),2 (+)
+CG,3+,ISANTE-021-THR,Y,21,0000-036,3+,3+,3+,3+
+CG,1+,ISANTE-022-ONE,Y,22,0000-037,1+,1+,1+,1+
+CG,2+,ISANTE-023-TWO,Y,23,0000-038,2+,2+,2+,2+
 Test Result,Scanty,ISANTE-024-Sca,Y,24,0000-039,Scanty,Scanty,Scanty,Scanty
 Test Result,Contaminated specimen,ISANTE-025-Con,Y,25,0000-040,Contaminated specimen,Contaminated specimen,Contaminated specimen,Contaminated specimen
 Test Result,Results not available,ISANTE-026-Res,Y,26,0000-041,Results not available,Results not available,Results not available,Results not available
@@ -40,7 +40,7 @@ Test Result,1:256,ISANTE-038-1:2,Y,38,0000-053,1:256,1:256,1:256,1:256
 Test Result,>1:572,ISANTE-039->1:,Y,39,0000-054,>1:572,>1:572,>1:572,>1:572
 Test Result,Unknown (Confirmed),ISANTE-040-Unk,Y,40,0000-055,Unknown (Confirmed),Unknown (Confirmed),Unknown (Confirmed),Unknown (Confirmed)
 Test Result,Procedure Refused,ISANTE-041-Pro,Y,41,0000-056,Procedure Refused,Procedure Refused,Procedure Refused,Procedure Refused
-Test Result,4 (+),ISANTE-042-FOU,Y,42,0000-057,4 (+),4 (+),4 (+),4 (+)
+CG,4+,ISANTE-042-FOU,Y,42,0000-057,4+,4+,4+,4+
 Test Result,Test not performed due to lack of availability of test materials,ISANTE-043-Tes,Y,43,0000-058,Test not performed due to lack of availability of test materials,Test not performed due to lack of availability of test materials,Test not performed due to lack of availability of test materials,Test not performed due to lack of availability of test materials
 Test Result,Procedure not performed,ISANTE-044-Pro,Y,44,0000-059,Procedure not performed,Procedure not performed,Procedure not performed,Procedure not performed
 Test Result,Positive for Plasmodium falciparum,ISANTE-045-Pos,Y,45,0000-060,Positive for Plasmodium falciparum,Positive for Plasmodium falciparum,Positive for Plasmodium falciparum,Positive for Plasmodium falciparum
@@ -94,5 +94,13 @@ Test Result,Fatty casts presence in urine sediment by light microscopy test,ISAN
 Test Result,Waxy casts presence in urine sediment by light microscopy test,ISANTE-093-Wax,Y,93,33862-4,Waxy casts presence in urine sediment by light microscopy test,Waxy casts presence in urine sediment by light microscopy test,Waxy casts presence in urine sediment by light microscopy test,Waxy casts presence in urine sediment by light microscopy test
 Test Result,WBC casts presence in urine sediment by light microscopy test,ISANTE-094-WBC,Y,94,33825-1,WBC casts presence in urine sediment by light microscopy test,WBC casts presence in urine sediment by light microscopy test,WBC casts presence in urine sediment by light microscopy test,WBC casts presence in urine sediment by light microscopy test
 Test Result,Epithelial casts presence in urine sediment by light microscopy test,ISANTE-095-Epi,Y,95,25157-9,Epithelial casts presence in urine sediment by light microscopy test,Epithelial casts presence in urine sediment by light microscopy test,Epithelial casts presence in urine sediment by light microscopy test,Epithelial casts presence in urine sediment by light microscopy test
-Test Result,5 (+),ISANTE-096-5+,Y,96,0000-200,5 (+),5 (+),5 (+),5 (+)
-Test Result,>5 (+),ISANTE-097->5+,Y,97,0000-201,>5 (+),>5 (+),>5 (+),>5 (+)
+CG,5+,ISANTE-096-5+,Y,96,0000-200,5+,5+,5+,5+
+CG,>5+,ISANTE-097->5+,Y,97,0000-201,>5+,>5+,>5+,>5+
+Test Result,Liquid,ISANTE-098-Liq,Y,98,0000-202,Liquid,Liquid,Liquid,Liquid
+Test Result,Solid,ISANTE-099-Sol,Y,99,0000-203,Solid,Solid,Solid,Solid
+Test Result,Pasty,ISANTE-100-Pas,Y,100,0000-204,Pasty,Pasty,Pasty,Pasty
+CG,DETECTED,ISANTE-101-DET,Y,101,0000-205,DETECTED,DETECTED,DETECTED,DETECTED
+CG,NOT DETECTED,ISANTE-102-NOT,Y,102,0000-206,NOT DETECTED,NOT DETECTED,NOT DETECTED,NOT DETECTED
+Test Result,Normal,ISANTE-103-Nor,Y,103,0000-207,Normal,Normal,Normal,Normal
+Test Result,Abnormal,ISANTE-104-Abn,Y,104,0000-208,Abnormal,Abnormal,Abnormal,Abnormal
+CG,INHIBITORY,ISANTE-105-INH,Y,105,0000-209,INHIBITORY,INHIBITORY,INHIBITORY,INHIBITORY
