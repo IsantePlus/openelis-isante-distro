@@ -6,6 +6,8 @@ Clone the repo
 
     git clone https://github.com/IsantePlus/openelis-isante-distro.git
 
+> **Note (remote deployments):** If you are running this setup on a remote machine rather than `localhost`, update the OpenELIS IP address in the OpenHIM Console config [`configs/openhim/configs/default.json`](./configs/openhim/configs/default.json) by setting the `host` field to your server's IP address or hostname (e.g. `"host": "10.0.0.5"`). Leave it as `localhost` only when running locally.
+
 Spin up the OpenELIS and OpenHIM services 
 
 ```
