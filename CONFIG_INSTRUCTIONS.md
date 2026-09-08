@@ -328,23 +328,7 @@ Every message between the two systems is recorded in OpenHIM.
 
 ## 8. Things to fix in the current files
 
-### 8.1 Seven rows in the concepts file are ignored
-
-Set to `true`, but the name contains a comma, so the row is ignored and the code never applied:
-
-| UUID | NAME | LOINC |
-| :--- | :--- | :--- |
-| `908AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA` | `HERPES SIMPLEX VIRUS, QUALITATIVE` | `51916-5` |
-| `1945AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA` | `Serum Pregnancy Test, Qualitative` | `2118-8` |
-| `159982AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA` | `results, tuberculosis culture` | `88142-5` |
-| `160735AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA` | `Bacteriuria test, urine` | `20408-1` |
-| `163426AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA` | `Combined % of monocytes, eosinophils and basophils` | `32155-4` |
-| `123501AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA` | `Urinary Cast, Hyaline` | `0000-099` |
-| `1305AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA` | `HIV VIRAL LOAD, QUALITATIVE` | `48510-2` |
-
-**Fix:** remove the commas and quotation marks from the name. The name is only for reading, so rewording is safe. Nine more rows have the same problem but are set to `false`, so nothing is lost — still worth tidying.
-
-### 8.2 Nine tests to check
+### 8.1 Nine tests to check
 
 These OpenELIS tests have a code that appears nowhere in the concepts file. **Not necessarily wrong** — the concepts file only lists concepts that needed a code added, so a missing code usually means IsantePLUS already had it. Check each in the OpenMRS Dictionary first.
 
@@ -362,10 +346,10 @@ These OpenELIS tests have a code that appears nowhere in the concepts file. **No
 
 If the concept does not have the code, add it with `true`. If no concept exists, create it in IsantePLUS first.
 
-**Check `HIV VIRAL LOAD` closely.** OpenELIS gives it `25836-8`; the concepts file has `HIV VIRAL LOAD, QUALITATIVE` with `48510-2`. Two different codes, so this may be correct — but if they are the same test, one side is wrong. It is also the only one with no `test-results` row, so unless a result type is already set in OpenELIS, results cannot be entered.
+**Check `HIV VIRAL LOAD` closely.** OpenELIS gives it `25836-8`; the concepts file has `HIV VIRAL LOAD QUALITATIVE` with `48510-2`. Two different codes, so this may be correct — but if they are the same test, one side is wrong. It is also the only one with no `test-results` row, so unless a result type is already set in OpenELIS, results cannot be entered.
 
 Every answer code in `dictionaries` does appear in the concepts file.
 
-### 8.3 Twenty-three tests with no `test-results` row
+### 8.2 Twenty-three tests with no `test-results` row
 
 Hemoglobin, Glucose, Creatinine, Hematocrit and similar appear in `tests` but have no row in `test-results`. These are standard OpenELIS tests that almost certainly already have their result type set, which is why no row was written. Check **Administration → Test Management** before adding rows.
