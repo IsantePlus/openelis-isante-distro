@@ -61,7 +61,19 @@ Note: these modules can be built from their corresponding repositories using the
    mvn clean install
    ```
 
-1. create a directory `/openmrs/concepts_update` and put this [concepts file](./configs/isanteplus/concepts_update/concepts.csv) there in oder to update the Lab Tests with the missing Concepts
+1. On the IsantePLUS server (Tomcat runs directly on the host), create the directory `/openmrs/concepts_update` and put this [concepts file](./configs/isanteplus/concepts_update/concepts.csv) there in oder to update the Lab Tests with the missing Concepts
+
+    ```bash
+    sudo mkdir -p /openmrs/concepts_update
+    sudo cp configs/isanteplus/concepts_update/concepts.csv /openmrs/concepts_update/
+    sudo chown -R tomcat:tomcat /openmrs/concepts_update
+    sudo systemctl restart tomcat
+    ```
+
+    Only mount `./configs/isanteplus/concepts_update:/openmrs/concepts_update` if you are running IsantePLUS from the commented-out containers in [`docker-compose.yml`](./docker-compose.yml).
+
+    See [**Configuration Instructions**](./CONFIG_INSTRUCTIONS.md) for how to add or edit rows in this file.
+
 1. Ensure these Global properties are rightly set in IsatePlus as below
 
     ### LabOnFHIR Global Properties
@@ -122,6 +134,8 @@ Note: these modules can be built from their corresponding repositories using the
 
 1. Ensure to Add the Right Test Catalogue to OpenELIS ( Tests with `Loinc Codes`) .
 This can be done via the [test config](./configs/openelis/configuration/backend/tests/example-tests.csv) files for Innitialization at Startup or Manually via the UI
+
+    The LOINC code of a test in OpenELIS must match the LOINC code of its concept in IsantePLUS exactly, and so must the LOINC code of every coded answer option. See [**Configuration Instructions**](./CONFIG_INSTRUCTIONS.md) for the tests, test results, test sections, sample types and dictionaries config files and how they fit together.
 
 1. To send an Order from IsantePlus to OpenELIS , Go to the Patient Dashboard , Open the Laboratory form , select `OpenELIS` as the destination , select tests and send.
 
