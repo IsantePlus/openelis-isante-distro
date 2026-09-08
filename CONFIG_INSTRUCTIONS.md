@@ -323,33 +323,3 @@ Processed concepts.csv: added=12, skipped=300, notFound=3, errors=0
 4. In IsantePLUS, run the OpenELIS Pull Task. The result should appear. If a list-of-answers test does not come back, the **answer's** code does not match.
 
 Every message between the two systems is recorded in OpenHIM.
-
----
-
-## 8. Things to fix in the current files
-
-### 8.1 Nine tests to check
-
-These OpenELIS tests have a code that appears nowhere in the concepts file. **Not necessarily wrong** — the concepts file only lists concepts that needed a code added, so a missing code usually means IsantePLUS already had it. Check each in the OpenMRS Dictionary first.
-
-| LOINC | Test | Department | Specimen |
-| :--- | :--- | :--- | :--- |
-| `5126-8` | Cytomegalovirus IgM | Hematology | Serum |
-| `6355-2` | Chlamydia trachomatis Ag, immunofluorescence | Hematology | Variable |
-| `6361-0` | Clostridium difficile toxin A+B, immunoassay | Hematology | Serum |
-| `13949-3` | Cytomegalovirus IgG | Hematology | Serum |
-| `25338-5` | Dengue virus IgM | Hematology | Serum |
-| `25836-8` | HIV VIRAL LOAD | Molecular Biology | Plasma |
-| `29676-4` | Dengue virus IgG | Hematology | Serum |
-| `32188-5` | Cerebrospinal fluid AFB stain | Hematology | Fluid |
-| `45009-8` | Chlamydia trachomatis Ab, immunofluorescence | Hematology | Serum |
-
-If the concept does not have the code, add it with `true`. If no concept exists, create it in IsantePLUS first.
-
-**Check `HIV VIRAL LOAD` closely.** OpenELIS gives it `25836-8`; the concepts file has `HIV VIRAL LOAD QUALITATIVE` with `48510-2`. Two different codes, so this may be correct — but if they are the same test, one side is wrong. It is also the only one with no `test-results` row, so unless a result type is already set in OpenELIS, results cannot be entered.
-
-Every answer code in `dictionaries` does appear in the concepts file.
-
-### 8.2 Twenty-three tests with no `test-results` row
-
-Hemoglobin, Glucose, Creatinine, Hematocrit and similar appear in `tests` but have no row in `test-results`. These are standard OpenELIS tests that almost certainly already have their result type set, which is why no row was written. Check **Administration → Test Management** before adding rows.
