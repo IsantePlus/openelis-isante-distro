@@ -323,3 +323,31 @@ Processed concepts.csv: added=12, skipped=300, notFound=3, errors=0
 4. In IsantePLUS, run the OpenELIS Pull Task. The result should appear. If a list-of-answers test does not come back, the **answer's** code does not match.
 
 Every message between the two systems is recorded in OpenHIM.
+
+---
+
+## 8. Tests with no matching entry in the concepts file
+
+These nine OpenELIS tests have a LOINC code that appears nowhere in the concepts file.
+
+**This is not automatically a fault.** The concepts file only lists concepts whose code had to be added, so a code missing from it usually means IsantePLUS already had the right one. Check each in the OpenMRS **Dictionary** before changing anything.
+
+| LOINC | Test | Department | Specimen |
+| :--- | :--- | :--- | :--- |
+| `5126-8` | Cytomegalovirus IgM | Hematology | Serum |
+| `6355-2` | Chlamydia trachomatis Ag, immunofluorescence | Hematology | Variable |
+| `6361-0` | Clostridium difficile toxin A+B, immunoassay | Hematology | Serum |
+| `13949-3` | Cytomegalovirus IgG | Hematology | Serum |
+| `25338-5` | Dengue virus IgM | Hematology | Serum |
+| `25836-8` | HIV VIRAL LOAD | Molecular Biology | Plasma |
+| `29676-4` | Dengue virus IgG | Hematology | Serum |
+| `32188-5` | Cerebrospinal fluid AFB stain | Hematology | Fluid |
+| `45009-8` | Chlamydia trachomatis Ab, immunofluorescence | Hematology | Serum |
+
+For each one:
+
+- **The concept has the code already** — nothing to do.
+- **The concept has no code, or a different one** — add a row to the concepts file with the concept's UUID, this code, and `true`.
+- **No such concept exists** — create it in IsantePLUS first. The concepts file cannot create concepts.
+
+**Look at `HIV VIRAL LOAD` closely.** OpenELIS gives it `25836-8`, which is the quantitative viral load. The concepts file has a concept called `HIV VIRAL LOAD QUALITATIVE` with `48510-2`, which is the qualitative one. These are genuinely two different codes, so this may be correct — but if the two are meant to be the same test, one side is wrong. It is also the only one of the nine with no row in `test-results`, so unless a result type is already set for it in OpenELIS, results cannot be entered against it.
