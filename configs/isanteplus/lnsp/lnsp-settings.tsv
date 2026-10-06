@@ -1,0 +1,44 @@
+# iSantePlus-side LNSP settings (global properties), reference = HUP-svr where the LNSP workflow runs.
+# Format: property<TAB>value.  A value is either a literal or exactly one placeholder:
+#   @CLIENT_ID@  @CLIENT_PASSWORD@  @OPENMRS_ADMIN_PASSWORD@   (a line is skipped when its variable is not set)
+# Applied by scripts/apply-lnsp-settings.sh (dry run by default).
+#
+# --- xds-sender: local OpenHIM (orders) and central SEDISH OpenHIM (results, SHR) ---
+xdssender.repositoryEndpoint	http://localhost:5001/xdsrepository
+xdssender.notificationsPullPoint.endpoint	https://openhimcore.sedish.net/lnsp/lab-results/get-by-facility
+xdssender.exportCcdEndpoint	https://openhimcore.sedish.net/SHR/fhir
+xdssender.exportCcd.ignoreCerts	true
+xdssender.shrType	fhir
+xdssender.encounterTypesToProcess	f037e97b-471e-4898-a07c-b8e169e0ddc4
+xdssender.crRoot	http://openclientregistry.org/fhir/sourceid
+xdssender.ecidRoot	2.16.840.1.113883.4.56
+xdssender.ccd.errorHandler.implementation	outgoingmessageexceptions.CcdErrorHandlingService
+xdssender.xdsB.errorHandler.implementation	outgoingmessageexceptions.XdsBErrorHandlingService
+xdssender.openmrs.moduleUsedToDetermineSoftwareVersion	isanteplusreports
+xdssender.openmrs.username	admin
+xdssender.pullNotificationsTaskInterval	900
+# Site credentials: the OpenHIM client of the site (same id/password in the local and in the central OpenHIM)
+xdssender.xdsrepository.username	@CLIENT_ID@
+xdssender.notificationsPullPoint.username	@CLIENT_ID@
+xdssender.oshr.username	@CLIENT_ID@
+xdssender.xdsrepository.password	@CLIENT_PASSWORD@
+xdssender.notificationsPullPoint.password	@CLIENT_PASSWORD@
+xdssender.oshr.password	@CLIENT_PASSWORD@
+xdssender.openmrs.password	@OPENMRS_ADMIN_PASSWORD@
+# --- labintegration (HL7 orders to LNSP) ---
+labintegration.LaboratoryFormName	Analyse de Laboratoire
+labintegration.hl7.dateFormat	yyyyMMddHHmmss
+labintegration.hl7.motherNameAttrTypeUuid	First Name of Mother
+labintegration.hl7.phoneNumAttrTypeUuid	Telephone Number
+labintegration.hl7.regForm.birthPlaceCity	CIEL:165198
+labintegration.hl7.regForm.birthPlaceGroup	CIEL:165194
+labintegration.hl7.regForm.civilStatus	CIEL:1054
+labintegration.hl7.regForm.religion	CIEL:162929
+labintegration.hl7.regForm.typeUuid	873f968a-73a8-4f9c-ac78-9f4778b751b6
+labintegration.openElis.pidTypeUuid	05a29f94-c0ed-11e2-94be-8c13b969e334
+labintegration.openElis.receivingApplication	OpenELIS
+labintegration.openElis.sendingApplication	iSantePlus
+labintegration.orderEncounterTypeUuid	f037e97b-471e-4898-a07c-b8e169e0ddc4
+labintegration.production	false
+# --- reports: LNSP reports need module version 1.1-SNAPSHOT ---
+reports.moduleVersion	1.1-SNAPSHOT

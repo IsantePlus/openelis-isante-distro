@@ -1,0 +1,66 @@
+{
+  "Clients": [
+    {
+      "clientID": "OpenELIS",
+      "name": "OpenELIS",
+      "organization": "OpenELIS",
+      "roles": ["admin"],
+      "passwordAlgorithm": "sha512",
+      "passwordSalt": "3ed9f887292b021eb166d8e4c7c45a39",
+      "passwordHash": "cdb6367a557235684ef0aa4998bd12a0222bcca199affa176c6d3d1d7840e94e0175be336abd7e2e5e06d43f57f98e99803c342929c1d30255d26a10c84033cb"
+    },
+    {
+      "clientID": "IsantePLUS",
+      "name": "IsantePLUS",
+      "organization": "IsantePLUS",
+      "roles": ["admin"],
+      "passwordAlgorithm": "sha512",
+      "passwordSalt": "ef19571d7bda6056c3a6f8d8d56d2852",
+      "passwordHash": "dd465772354a510bc4215adf988fadf3f21d8544c3fa8e9662edfe795ebccebfc4b8df8bc74d917d4c3b922e1d33a892da7592e671d38f22042e591bd63522d6"
+    }
+  ],
+  "Channels": [
+    {
+      "name": "central fhir server",
+      "description": "Access to the OpenELIS FHIR server (through the mTLS fhir-gateway)",
+      "urlPattern": "^/fhir/.*$",
+      "type": "http",
+      "methods": ["GET", "POST", "DELETE", "PUT", "OPTIONS", "HEAD", "TRACE", "CONNECT", "PATCH"],
+      "allow": ["admin"],
+      "authType": "private",
+      "status": "enabled",
+      "whitelist": [],
+      "requestBody": true,
+      "responseBody": true,
+      "matchContentTypes": [],
+      "properties": [],
+      "txViewAcl": [],
+      "txViewFullAcl": [],
+      "txRerunAcl": [],
+      "rewriteUrls": false,
+      "addAutoRewriteRules": true,
+      "rewriteUrlsConfig": [],
+      "autoRetryEnabled": false,
+      "autoRetryPeriodMinutes": 60,
+      "alerts": [],
+      "routes": [
+        {
+          "name": "OpenELIS FHIR gateway",
+          "type": "http",
+          "status": "enabled",
+          "primary": true,
+          "secured": false,
+          "host": "172.20.1.1",
+          "port": 8445,
+          "path": "",
+          "pathTransform": "",
+          "forwardAuthHeader": false,
+          "username": "__FHIR_GW_USER__",
+          "password": "__FHIR_GW_PASSWORD__"
+        }
+      ]
+    }
+  ],
+  "Mediators": [],
+  "ContactGroups": []
+}
